@@ -9,14 +9,14 @@ from shot import Shot
 import sys
 
 def main():
-    print("Starting Asteroids!")
-    print(f"Screen width: {str(SCREEN_WIDTH)}")
-    print(f"Screen height: {str(SCREEN_HEIGHT)}")
-
     pygame.init()
     clock = pygame.time.Clock()
     dt = 0
     asteroids_destroyed = 0
+
+    print("Starting Asteroids!")
+    print(f"Screen width: {str(SCREEN_WIDTH)}")
+    print(f"Screen height: {str(SCREEN_HEIGHT)}")
 
     asteroids = pygame.sprite.Group()
     updatable = pygame.sprite.Group()
@@ -43,8 +43,7 @@ def main():
             for shot in shots:
                 if sprite.collide(shot):
                     shot.kill()
-                    sprite.kill()
-                    asteroids_destroyed += 1
+                    asteroids_destroyed += sprite.split()
             if sprite.collide(player):
                 print("Game over!")
                 sys.exit(0)
